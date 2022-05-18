@@ -1,0 +1,2 @@
+class Bibliotercario(Usuario):
+    pass
