@@ -234,22 +234,20 @@ while menu != '0':
 
 
 
-        startDate = datetime.datetime.now()
-        print(f'Dia do aluguel: {startDate.day}/{startDate.month}/{startDate.year}')
-        endDate = startDate + datetime.timedelta(days=7)
-        print(f'Dia da devolução: {endDate.day}/{endDate.month}/{endDate.year}')
 
     #Essa função realizará um empréstimo;
     elif menu == '9':
+        dataInicio = datetime.datetime.now()
+        datai = f'{dataInicio.day}/{dataInicio.month}/{dataInicio.year}'
+        dataFinal = dataInicio + datetime.timedelta(days=7)
+        dataf = f'{dataFinal.day}/{dataFinal.month}/{dataFinal.year}'
+        cpf_u = input('Digite o cpf do usuario que deseja alugar um livro')
+        codigo_l = input('Digite o codigo do livro que será alugado')
+        cursor.execute(f'INSERT INTO loca (datai, dataf, codigo, cpf) VALUES("{datai}", "{dataf}", {codigo_l}, {cpf_u});')
+        mydb.commit()
 
-            cpf_u = input('Digite o cpf do usuario que deseja alugar um livro')
-            codigo_l = input('Digite o codigo do livro que será alugado')
-            cursor.execute(f'INSERT INTO aluguel (loc, datai, dataf, codigo, cpf) VALUES ( 1, 1, 1,'
-                           f' {codigo_l}, {cpf_u});')
-            mydb.commit()
 
 '''
-
 #Essa função realizará um empréstimo;
     elif menu == '9':
 
