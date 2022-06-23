@@ -26,7 +26,7 @@ usuario_cad = []
 while menu != '0':
     menu = input('Digite: \n-0 para sair \n-1 para cadastrar um livro \n-2 para cadastrar um usuário \n-3 para Atualizar'
                  ' um livro \n-4 para atualizar um usuário \n-5 para buscar um livro \n-6 para buscar um usuáro\n-7 para'
-                 ' excluir um livro \n-8 para excluir um usuário \n-9 para realizar um empréstimo\n')
+                 ' excluir um livro \n-8 para excluir um usuário \n-9 para realizar um empréstimo\n-10 para realizar uma devolução\n')
 
 #Essa função irá cadastrar um livro no banco de dados;
     if menu == '1':
@@ -244,6 +244,13 @@ while menu != '0':
         cpf_u = input('Digite o cpf do usuario que deseja alugar um livro')
         codigo_l = input('Digite o codigo do livro que será alugado')
         cursor.execute(f'INSERT INTO loca (datai, dataf, codigo, cpf) VALUES("{datai}", "{dataf}", {codigo_l}, {cpf_u});')
+        mydb.commit()
+
+
+    elif menu == '10':
+        cpf_u = input('Digite o cpf do usuario que deseja devolver o livro')
+        codigo_l = input('Digite o codigo do livro esta alugado')
+        cursor.execute(f'DELETE from loca WHERE codigo = {codigo_l} and cpf = {cpf_u};')
         mydb.commit()
 
 
