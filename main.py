@@ -223,13 +223,13 @@ while menu != '0':
         dataf = f'{dataFinal.day}/{dataFinal.month}/{dataFinal.year}'
         cpf_u = input('Digite o cpf do usuario que deseja alugar um livro')
         codigo_l = input('Digite o codigo do livro que será alugado')
-        cursor.execute(f'INSERT INTO loca (datai, dataf, codigo, cpf) VALUES("{datai}", "{dataf}", {codigo_l}, {cpf_u});')
+        cursor.execute(f'INSERT INTO aluguel (datai, dataf, codigo, cpf) VALUES("{datai}", "{dataf}", {codigo_l}, {cpf_u});')
         mydb.commit()
 
     elif menu == '10':
         cpf_u = input('Digite o cpf do usuario que deseja devolver o livro')
         codigo_l = input('Digite o codigo do livro esta alugado')
-        cursor.execute(f'DELETE from loca WHERE codigo = {codigo_l} and cpf = {cpf_u};')
+        cursor.execute(f'DELETE from aluguel WHERE codigo = {codigo_l} and cpf = {cpf_u};')
         mydb.commit()
 
 cursor.execute('select * from usuario;')
