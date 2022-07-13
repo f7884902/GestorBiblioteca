@@ -6,23 +6,16 @@ def buscarAluguel(cursor, mydb):
         cursor.execute('select * from aluguel;')
         i = 1
         for x in cursor:
-            for col in x:
-                list.append(col)
             print('\n'+'*'*25)
             print(f'Aluguel {i}')
             print('*'*25)
-            print(f'ID: {list[0]}\nData inicio: {list[1]}\nData final: {list[2]}\nCodigo do livro: {list[3]}\nCPF Logradouro: {list[4]}')
+            print(f'ID: {x[0]}\nData inicio: {x[1]}\nData final: {x[2]}\nCodigo do livro: {x[3]}\nCPF Logradouro: {x[4]}')
             print('*'*25+'\n')
-            list = []
             i += 1
     elif aux == '2':
-        list = []
         id = input('Digite o id do aluguel: ')
         cursor.execute(f'select * from aluguel WHERE id_aluguel = {id};')
         for x in cursor:
-            for col in x:
-                list.append(col)
             print('\n'+'*'*25)
-            print(f'ID: {list[0]}\nData inicio: {list[1]}\nData final: {list[2]}\nCodigo do livro: {list[3]}\nCPF Logradouro: {list[4]}')
+            print(f'ID: {x[0]}\nData inicio: {x[1]}\nData final: {x[2]}\nCodigo do livro: {x[3]}\nCPF Logradouro: {x[4]}')
             print('*'*25+'\n')
-            list = []

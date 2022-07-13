@@ -11,8 +11,8 @@ def cadastrarLivro(cursor, mydb):
     edicao = input('Digite a edicao do livro a ser cadastrado ')
     editora = input('Digite a editora do livro a ser cadastrado ')
     ano = input('Digite o ano do livro a ser cadastrado ')
-    cursor.execute(f'INSERT INTO livro (nome, codigo, autores, edicao, editora, ano) VALUES ("{nome}",'
-                   f' {codigo},"{listA[0]}", "{edicao}", "{editora}", {ano});')
+    cursor.execute(f'INSERT INTO livros (nome, codigo, edicao, editora, ano) VALUES ("{nome}",'
+                   f' {codigo}, "{edicao}", "{editora}", {ano});')
     for autor in listA:
         cursor.execute(f'INSERT INTO autores (nome, codigo) VALUES ("{autor}", {codigo});')
     mydb.commit()
